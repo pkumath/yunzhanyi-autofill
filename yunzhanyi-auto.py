@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
 import time
@@ -15,6 +16,9 @@ def no_delay(path,driver):
 
 def no_delay_click(path,driver):
     while 1:
+        url = driver.current_url
+        if 'iaaa' in url:
+            return
         try:
             button = driver.find_element_by_xpath(path)
 
@@ -37,7 +41,8 @@ if __name__ == '__main__':
     #填入你的密码
     code = ''
 
-
+    # while 1:
+    #     try:
     user_name = driver.find_element_by_xpath('/html/body/div/div[2]/form/div/div[1]/input')
     user_name_kill = user_name.send_keys(id)
 
@@ -46,9 +51,42 @@ if __name__ == '__main__':
 
     button = driver.find_element_by_xpath('/html/body/div/div[2]/form/div/div[8]/input[3]')
     button_kill = button.click()
+    print('here?')
+    time.sleep(1)
+
+    url = driver.current_url
+    print(url)
+    time.sleep(1)
+
+    while 'iaaa' in url:
+        try:
+            user_name = driver.find_element_by_xpath('/html/body/div/div[2]/form/div/div[1]/input')
+            user_name_kill = user_name.send_keys(id)
+
+            user_code = driver.find_element_by_xpath('/html/body/div/div[2]/form/div/div[2]/input')
+            user_code_kill = user_code.send_keys(code)
+
+            button = driver.find_element_by_xpath('/html/body/div/div[2]/form/div/div[8]/input[3]')
+            button_kill = button.click()
+            print('here?')
+            print(driver.current_url)
+
+            time.sleep(1)
+        except:
+            break
 
     known_path = '/html/body/div[1]/div[3]/div/div/div[1]/div/div/table/tbody/tr[11]/td/a'
-    no_delay_click(known_path,driver)
+    no_delay_click(known_path, driver)
+
+
+
+    print('here!')
+        # break
+        # except:
+
+
+    # known_path = '/html/body/div[1]/div[3]/div/div/div[1]/div/div/table/tbody/tr[11]/td/a'
+    # no_delay_click(known_path,driver)
 
     window_before = driver.window_handles[0]
     print(window_before)
@@ -58,7 +96,7 @@ if __name__ == '__main__':
 
     while 1:
 
-        time.sleep(2)
+        time.sleep(1)
         try:
             another_window = list(set(driver.window_handles) - {driver.current_window_handle})[0]
             driver.switch_to.window(another_window)
@@ -88,9 +126,12 @@ if __name__ == '__main__':
     #     print(option)
     #     if "健康" in option.text.strip():
     #         option.click()
-    time.sleep(2)
+    time.sleep(1)
     save = '/html/body/div[1]/div/div[2]/section/main/div[2]/div[2]/div[1]/form/div[18]/div/button'
     no_delay_click(save,driver)
+    time.sleep(3)
+    driver.quit()
+
 
 
 
