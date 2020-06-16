@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#温刚
-#北京大学数学科学学院，jnwengang@pku.edu.cn
 
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
