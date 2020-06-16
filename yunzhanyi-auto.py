@@ -15,10 +15,18 @@ def no_delay(path,driver):
             time.sleep(1)
 
 def no_delay_click(path,driver):
+    global id
+    global code
     while 1:
         url = driver.current_url
+        print(url)
         if 'iaaa' in url:
-            return
+            user_name = driver.find_element_by_xpath('/html/body/div/div[2]/form/div/div[1]/input')
+            user_name_kill = user_name.send_keys(id)
+
+            user_code = driver.find_element_by_xpath('/html/body/div/div[2]/form/div/div[2]/input')
+            user_code_kill = user_code.send_keys(code)
+            time.sleep(1)
         try:
             button = driver.find_element_by_xpath(path)
 
