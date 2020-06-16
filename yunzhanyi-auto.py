@@ -26,6 +26,9 @@ def no_delay_click(path,driver):
 
             user_code = driver.find_element_by_xpath('/html/body/div/div[2]/form/div/div[2]/input')
             user_code_kill = user_code.send_keys(code)
+
+            button = driver.find_element_by_xpath('/html/body/div/div[2]/form/div/div[8]/input[3]')
+            button_kill = button.click()
             time.sleep(1)
         try:
             button = driver.find_element_by_xpath(path)
