@@ -10,3 +10,5 @@
 在代码中的id 和code输入你的学号密码就可以了.
 
 代码略丑,欢迎贡献代码!
+
+pyinstaller --windowed --onefile --clean --noconfirm yunzhanyi.py

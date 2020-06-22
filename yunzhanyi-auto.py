@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
 import time
@@ -119,11 +118,13 @@ if __name__ == '__main__':
     # print(window_after)
     # print(driver.window_handles)
 
-    empty_symptom = '/html/body/div[1]/div/div[2]/section/main/div[2]/div[2]/div[1]/form/div[14]/div/label[2]/span[1]/span'
+    empty_symptom = '/html/body/div/div/div[2]/section/main/div[2]/div[2]/div[1]/form/div[15]/div/label[2]/span[2]'
     no_delay_click(empty_symptom,driver)
 
-    sf = '/html/body/div[1]/div/div[2]/section/main/div[2]/div[2]/div[1]/form/div[15]/div/div/div/input'
+
+    sf = '/html/body/div[1]/div/div[2]/section/main/div[2]/div[2]/div[1]/form/div[16]/div/div/div/input'
     no_delay_click(sf,driver)
+
 
     choice = '/html/body/div[2]/div[1]/div[1]/ul/li[1]/span'
     no_delay_click(choice,driver)
@@ -138,7 +139,7 @@ if __name__ == '__main__':
     #     if "健康" in option.text.strip():
     #         option.click()
     time.sleep(1)
-    save = '/html/body/div[1]/div/div[2]/section/main/div[2]/div[2]/div[1]/form/div[18]/div/button'
+    save = '/html/body/div[1]/div/div[2]/section/main/div[2]/div[2]/div[1]/form/div[19]/div/button'
     no_delay_click(save,driver)
     time.sleep(3)
     driver.quit()
